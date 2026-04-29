@@ -1,0 +1,4 @@
+yfinance
+pandas
+pandas-ta-openbb
+requests==2.31.0
