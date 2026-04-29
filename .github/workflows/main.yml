@@ -1,0 +1,83 @@
+name: VCP Positional Trader
+
+on:
+  schedule:
+    # Morning summary — 9:20 AM IST = 3:50 AM UTC
+    - cron: "50 3 * * 1-5"
+    # Evening scan — 5:15 PM IST = 11:45 AM UTC
+    - cron: "45 11 * * 1-5"
+
+  workflow_dispatch:  # Allow manual trigger from GitHub UI
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Set Telegram credentials
+        run: |
+          sed -i 's/YOUR_BOT_TOKEN/${{ secrets.TELEGRAM_TOKEN }}/g' telegram_bot.py
+          sed -i 's/YOUR_CHAT_ID/${{ secrets.TELEGRAM_CHAT_ID }}/g' telegram_bot.py
+
+      - name: Restore trades file
+        run: |
+          if [ -f trades_backup.json ]; then
+            cp trades_backup.json trades.json
+            echo "Restored trades.json from backup"
+          else
+            echo "[]" > trades.json
+            echo "Created empty trades.json"
+          fi
+
+      - name: Run morning summary (9:20 AM IST)
+        if: github.event.schedule == '50 3 * * 1-5'
+        run: python trade_manager.py morning
+
+      - name: Run evening scan + monitor (5:15 PM IST)
+        if: github.event.schedule == '45 11 * * 1-5'
+        run: |
+          python trade_manager.py
+          python scanner.py
+
+      - name: Run both if manually triggered
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          python trade_manager.py morning
+          python trade_manager.py
+          python scanner.py
+
+      - name: Save trades file as backup
+        run: |
+          if [ -f trades.json ]; then
+            cp trades.json trades_backup.json
+          fi
+
+      - name: Send failure alert
+        if: failure()
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
+          -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
+          -d text="❌ VCP Bot CRASHED — Check GitHub Actions logs immediately: https://github.com/${{ github.repository }}/actions"
+
+      - name: Commit trades backup
+        run: |
+          git config --global user.email "bot@vcptrader.com"
+          git config --global user.name "VCP Bot"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git add trades_backup.json
+          git diff --staged --quiet || git commit -m "Update trades backup $(date +'%Y-%m-%d %H:%M')"
+          git push origin HEAD:${{ github.ref_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
