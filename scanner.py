@@ -168,8 +168,8 @@ def detect_vcp_signal(ticker, market_trend, nifty_r60):
             return None
         df.index = pd.to_datetime(df.index)
 
-        if market_trend == "BEARISH":
-            return None
+        # if market_trend == "BEARISH":
+        #     return None
 
         # ── DAILY INDICATORS ──────────────────
         df["EMA20"]     = ta.ema(df["Close"], 20)
@@ -385,18 +385,18 @@ def run_scan():
     print(f"  Hard SL Cap   : {int(MAX_RISK_PCT*100)}%")
     print(f"  T1 Target     : {RR_RATIO_T1}R  |  T2: {RR_RATIO_T2}R")
 
-    if regime == "BEARISH":
-        msg = (
-            f"⚠️ <b>MARKET IS BEARISH</b>\n\n"
-            f"Nifty is below EMA50.\n"
-            f"No trades today.\n\n"
-            f"Regime    : {regime}\n"
-            f"Nifty 60d : {round(nifty_r60*100,1)}%"
-        )
-        from telegram_bot import send_message
-        send_message(msg)
-        print("\n  ⚠️  BEARISH — scan stopped. No trades.")
-        return
+    # if regime == "BEARISH":
+    #     msg = (
+    #         f"⚠️ <b>MARKET IS BEARISH</b>\n\n"
+    #         f"Nifty is below EMA50.\n"
+    #         f"No trades today.\n\n"
+    #         f"Regime    : {regime}\n"
+    #         f"Nifty 60d : {round(nifty_r60*100,1)}%"
+    #     )
+    #     from telegram_bot import send_message
+    #     send_message(msg)
+    #     print("\n  ⚠️  BEARISH — scan stopped. No trades.")
+    #     return
 
     stocks  = fetch_nifty200()
     signals = []
