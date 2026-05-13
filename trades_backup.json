@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "ticker": "SAIL",
+    "entry": 201.3,
+    "sl": 184.8,
+    "target1": 242.6,
+    "target2": 283.9,
+    "score": 15.0,
+    "adx": 34.7,
+    "vol_surge": 7.9,
+    "entry_date": "2026-05-13",
+    "days_held": 0,
+    "t1_hit": false,
+    "status": "OPEN"
+  }
+]
