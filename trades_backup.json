@@ -9,6 +9,20 @@
     "adx": 34.7,
     "vol_surge": 7.9,
     "entry_date": "2026-05-13",
+    "days_held": 1,
+    "t1_hit": false,
+    "status": "OPEN"
+  },
+  {
+    "ticker": "SOLARINDS",
+    "entry": 16665.0,
+    "sl": 15452.7,
+    "target1": 19695.8,
+    "target2": 22726.5,
+    "score": 14.8,
+    "adx": 38.3,
+    "vol_surge": 2.5,
+    "entry_date": "2026-05-14",
     "days_held": 0,
     "t1_hit": false,
     "status": "OPEN"
