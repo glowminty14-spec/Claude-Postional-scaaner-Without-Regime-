@@ -9,7 +9,7 @@
     "adx": 34.7,
     "vol_surge": 7.9,
     "entry_date": "2026-05-13",
-    "days_held": 1,
+    "days_held": 2,
     "t1_hit": false,
     "status": "OPEN"
   },
@@ -23,7 +23,7 @@
     "adx": 38.3,
     "vol_surge": 2.5,
     "entry_date": "2026-05-14",
-    "days_held": 0,
+    "days_held": 1,
     "t1_hit": false,
     "status": "OPEN"
   }
