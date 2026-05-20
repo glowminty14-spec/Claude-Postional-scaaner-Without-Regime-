@@ -9,7 +9,7 @@
     "adx": 34.7,
     "vol_surge": 7.9,
     "entry_date": "2026-05-13",
-    "days_held": 6,
+    "days_held": 7,
     "t1_hit": false,
     "status": "OPEN"
   },
@@ -23,7 +23,21 @@
     "adx": 38.3,
     "vol_surge": 2.5,
     "entry_date": "2026-05-14",
-    "days_held": 5,
+    "days_held": 6,
+    "t1_hit": false,
+    "status": "OPEN"
+  },
+  {
+    "ticker": "GVT&D",
+    "entry": 4679.4,
+    "sl": 4188.8,
+    "target1": 5905.9,
+    "target2": 7132.4,
+    "score": 14.5,
+    "adx": 35.4,
+    "vol_surge": 4.1,
+    "entry_date": "2026-05-20",
+    "days_held": 0,
     "t1_hit": false,
     "status": "OPEN"
   }
