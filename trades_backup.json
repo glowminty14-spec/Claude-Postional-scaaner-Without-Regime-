@@ -9,9 +9,13 @@
     "adx": 34.7,
     "vol_surge": 7.9,
     "entry_date": "2026-05-13",
-    "days_held": 23,
+    "days_held": 26,
     "t1_hit": false,
-    "status": "OPEN"
+    "status": "CLOSED",
+    "outcome": "LOSS",
+    "exit_price": 184.8,
+    "exit_pnl": -8.2,
+    "close_date": "2026-06-08"
   },
   {
     "ticker": "SOLARINDS",
@@ -23,7 +27,7 @@
     "adx": 38.3,
     "vol_surge": 2.5,
     "entry_date": "2026-05-14",
-    "days_held": 22,
+    "days_held": 25,
     "t1_hit": false,
     "status": "OPEN"
   },
@@ -37,7 +41,7 @@
     "adx": 35.4,
     "vol_surge": 4.1,
     "entry_date": "2026-05-20",
-    "days_held": 16,
+    "days_held": 19,
     "t1_hit": false,
     "status": "OPEN"
   }
