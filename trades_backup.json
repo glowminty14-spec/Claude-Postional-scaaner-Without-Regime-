@@ -27,9 +27,13 @@
     "adx": 38.3,
     "vol_surge": 2.5,
     "entry_date": "2026-05-14",
-    "days_held": 57,
+    "days_held": 60,
     "t1_hit": false,
-    "status": "OPEN"
+    "status": "CLOSED",
+    "outcome": "EXPIRED",
+    "exit_price": 18156.0,
+    "exit_pnl": 8.95,
+    "close_date": "2026-07-13"
   },
   {
     "ticker": "GVT&D",
@@ -41,7 +45,7 @@
     "adx": 35.4,
     "vol_surge": 4.1,
     "entry_date": "2026-05-20",
-    "days_held": 51,
+    "days_held": 54,
     "t1_hit": false,
     "status": "OPEN"
   }
