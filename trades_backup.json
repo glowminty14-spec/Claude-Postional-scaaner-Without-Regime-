@@ -52,5 +52,19 @@
     "exit_price": 4444.9,
     "exit_pnl": -5.01,
     "close_date": "2026-07-20"
+  },
+  {
+    "ticker": "INDUSINDBK",
+    "entry": 1069.3,
+    "sl": 1008.4,
+    "target1": 1221.6,
+    "target2": 1373.8,
+    "score": 14.8,
+    "adx": 37.0,
+    "vol_surge": 2.2,
+    "entry_date": "2026-07-22",
+    "days_held": 0,
+    "t1_hit": false,
+    "status": "OPEN"
   }
 ]
