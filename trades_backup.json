@@ -63,8 +63,12 @@
     "adx": 37.0,
     "vol_surge": 2.2,
     "entry_date": "2026-07-22",
-    "days_held": 0,
+    "days_held": 1,
     "t1_hit": false,
-    "status": "OPEN"
+    "status": "CLOSED",
+    "outcome": "LOSS",
+    "exit_price": 1008.4,
+    "exit_pnl": -5.7,
+    "close_date": "2026-07-23"
   }
 ]
